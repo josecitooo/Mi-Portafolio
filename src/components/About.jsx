@@ -84,7 +84,7 @@ const About = () => {
               Contáctame
             </a>
             <a 
-              href="/assets/Jose Carlos CV (Actualizado).pdf"
+              href="/Mi-Portafolio/assets/Jose Carlos CV (Actualizado).pdf"
               download 
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-blue-600 text-blue-600 font-medium hover:bg-blue-50 transition-colors"
             >
