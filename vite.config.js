@@ -2,6 +2,7 @@ import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import { createLogger, defineConfig } from 'vite';
 
+
 const configHorizonsViteErrorHandler = `
 const observer = new MutationObserver((mutations) => {
 	for (const mutation of mutations) {
@@ -183,7 +184,8 @@ logger.error = (msg, options) => {
 
 export default defineConfig({
 	customLogger: logger,
-	plugins: [react(), addTransformIndexHtml],
+	plugins: [react()],
+  	base: '/Mi-Portafolio/',
 	server: {
 		cors: true,
 		headers: {
@@ -198,3 +200,4 @@ export default defineConfig({
 		},
 	},
 });
+
