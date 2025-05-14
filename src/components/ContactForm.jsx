@@ -49,29 +49,44 @@ const ContactForm = () => {
       )}
 
       {/* Formulario */}
-      <form ref={form} onSubmit={sendEmail} className="space-y-6 bg-white p-6 rounded-lg shadow-lg">
+      {/* Formulario */}
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        className="space-y-6 bg-white p-6 rounded-lg shadow-lg"
+      >
+        {/* Campos ocultos necesarios para EmailJS */}
+        <input type="hidden" name="title" value="Formulario de Contacto" />
+        <input type="hidden" name="time" value={new Date().toLocaleString()} />
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <Label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            <Label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Nombre
             </Label>
             <Input
               type="text"
               id="name"
-              name="user_name"
+              name="name" // ✅ Corregido para que coincida con la plantilla EmailJS
               required
               className="contact-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Tu nombre"
             />
           </div>
           <div>
-            <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <Label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Email
             </Label>
             <Input
               type="email"
               id="email"
-              name="user_email"
+              name="email" // ✅ Corregido para que coincida con la plantilla EmailJS
               required
               className="contact-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="tu.email@ejemplo.com"
@@ -80,7 +95,10 @@ const ContactForm = () => {
         </div>
 
         <div>
-          <Label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+          <Label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Mensaje
           </Label>
           <textarea
@@ -93,14 +111,15 @@ const ContactForm = () => {
           ></textarea>
         </div>
 
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           className="w-full gradient-bg text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
         >
-          <Send className="w-5 h-5" /> {/* Ícono de avioncito */}
+          <Send className="w-5 h-5" />
           Enviar Mensaje
         </Button>
       </form>
+
     </div>
   );
 };
