@@ -15,10 +15,10 @@ const ContactForm = () => {
 
     (emailjs
       .sendForm(
-        'service_93u8hn5', // Reemplaza con tu Service ID
-        'template_85sjvzh', // Reemplaza con tu Template ID
+        'service_93u8hn5', // Service ID
+        'template_85sjvzh', // Template ID
         form.current,
-        'tbVQFCzZg9DZrqfQ2' // Reemplaza con tu Public Key
+        'tbVQFCzZg9DZrqfQ2' // Public Key
       )
       .then(
         (result) => {
