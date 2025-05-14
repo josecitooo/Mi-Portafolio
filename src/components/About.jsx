@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import fotoPerfil from '../assets/data-science.avif';
 
 const About = () => {
   return (
@@ -35,7 +36,11 @@ const About = () => {
           <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-lg z-0"></div>
           <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-purple-100 rounded-lg z-0"></div>
           <div className="relative z-10 rounded-lg overflow-hidden shadow-xl">
-            <img  alt="Foto de perfil profesional de Jose Carlos Fernandez" className="w-full h-auto rounded-lg" src="https://img.freepik.com/vector-premium/infografia-ciencia-datos-iconos-contiene-iconos-como-aprendizaje-automatico-clasificacion-bases-datos-big-data_159242-12657.jpg" />
+            <img
+              src={fotoPerfil}
+              alt="Foto de perfil profesional de Jose Carlos Fernandez"
+              className="w-full h-auto rounded-lg"
+/>
           </div>
         </motion.div>
 
