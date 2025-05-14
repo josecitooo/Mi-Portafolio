@@ -1,18 +1,103 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, ExternalLink } from 'lucide-react';
 
+// Lista fija de certificados
+const certificates = [
+  {
+    id: 1747224019914,
+    title: "Analisis de Datos Profesional",
+    issuer: "Microsoft - LinkedIn Learning",
+    date: "2025-02-08",
+    imageAlt: "Certificado de Analisis de Datos Profesional",
+    imageDesc: "Certificado de Analisis de Datos Profesional emitido por Microsoft - LinkedIn Learning",
+    imagePreview: "/assets/certificates/Certificado de Finalizacion - Analisis de datos LinkedIn.jpg",
+    link: "https://www.linkedin.com/learning/certificates/17b3fc830115bc689c6974a75a20ba00a4c9525b9a4b3469410302b3596d24dd?trk=share_certificate"
+  },
+  {
+    id: 1747224118847,
+    title: "Python Avanzado",
+    issuer: "Federico Garay - Udemy",
+    date: "2024-09-11",
+    imageAlt: "Certificado de Python Avanzado",
+    imageDesc: "Certificado de Python Avanzado emitido por Federico Garay - Udemy",
+    imagePreview: "/assets/certificates/Python - Udemy.jpg",
+    link: "https://www.udemy.com/certificate/UC-62734aa0-29b3-4eb8-bf77-e30cbe23d2a9/"
+  },
+  {
+    id: 1747224164850,
+    title: "Business Intelligence con Power BI",
+    issuer: "Instituto Tecnologico de Las Americas (ITLA)",
+    date: "2024-12-20",
+    imageAlt: "Certificado de Business Intelligence con Power BI",
+    imageDesc: "Certificado de Business Intelligence con Power BI emitido por Instituto Tecnologico de Las Americas (ITLA)",
+    imagePreview: "/assets/certificates/Certificado Business Intelligence Power BI.jpg",
+    link: ""
+  },
+  {
+    id: 1747224269895,
+    title: "Python para Ciencia de Datos",
+    issuer: "A2 Capacitacion",
+    date: "2025-01-03",
+    imageAlt: "Certificado de Python para Ciencia de Datos",
+    imageDesc: "Certificado de Python para Ciencia de Datos emitido por A2 Capacitacion",
+    imagePreview: "/assets/certificates/Certificado Python A2.jpg",
+    link: "https://cursos.a2capacitacion.com/courses/1503101/certificate"
+  },
+  {
+    id: 1747224340819,
+    title: "Excel Aplicado al Analisis Financiero",
+    issuer: "Federico Garay - Udemy",
+    date: "2024-05-16",
+    imageAlt: "Certificado de Excel Aplicado al Analisis Financiero",
+    imageDesc: "Certificado de Excel Aplicado al Analisis Financiero emitido por Federico Garay - Udemy",
+    imagePreview: "/assets/certificates/Excel Financiero - Udemy.jpg",
+    link: "https://www.udemy.com/certificate/UC-5675879d-d537-4cd3-8038-227ad388ed01/"
+  },
+  {
+    id: 1747224425967,
+    title: "Dashboards y Analisis de Datos con Excel",
+    issuer: "Federico Garay - Udemy",
+    date: "2024-09-14",
+    imageAlt: "Certificado de Dashboards y Analisis de Datos con Excel",
+    imageDesc: "Certificado de Dashboards y Analisis de Datos con Excel emitido por Federico Garay - Udemy",
+    imagePreview: "/assets/certificates/Tablas Dinámicas - Udemy.jpg",
+    link: "https://www.udemy.com/certificate/UC-c3640c8b-873f-42ae-a6cf-2b054a17fe37/"
+  },
+  {
+    id: 1747224565319,
+    title: "Python",
+    issuer: "Kaggle",
+    date: "2024-10-31",
+    imageAlt: "Certificado de Python",
+    imageDesc: "Certificado de Python emitido por Kaggle",
+    imagePreview: "/assets/certificates/Python - Kaggle.png",
+    link: "https://www.kaggle.com/learn/certification/josecailo/python"
+  },
+  {
+    id: 1747224630407,
+    title: "Pandas",
+    issuer: "Kaggle",
+    date: "2024-11-02",
+    imageAlt: "Certificado de Pandas",
+    imageDesc: "Certificado de Pandas emitido por Kaggle",
+    imagePreview: "/assets/certificates/Pandas - Kaggle.png",
+    link: "https://www.kaggle.com/learn/certification/josecailo/pandas"
+  },
+  {
+    id: 1747224889215,
+    title: "Aplicación de Conocimientos en Analisis de Datos",
+    issuer: "LinkedIn Learning",
+    date: "2025-02-07",
+    imageAlt: "Certificado de Aplicación de Conocimientos en Analisis de Datos",
+    imageDesc: "Certificado de Aplicación de Conocimientos en Analisis de Datos emitido por LinkedIn Learning",
+    imagePreview: "/assets/certificates/Certificado - Aplicacion de Conocimientos_page-0001.jpg",
+    link: "https://www.linkedin.com/learning/certificates/57be679cca9d505f4ff60bb1095382133af3da2fb9c2af64b2c96f5b85ef223f?trk=share_certificate"
+  }
+];
+
+
 const Certificates = () => {
-  const [certificates, setCertificates] = useState([]);
-
-  // Cargar certificados desde localStorage al montar el componente
-  useEffect(() => {
-    const savedCertificates = localStorage.getItem('portfolioCertificates');
-    if (savedCertificates) {
-      setCertificates(JSON.parse(savedCertificates));
-    }
-  }, []);
-
   return (
     <div className="container mx-auto px-4 md:px-6">
       <div className="text-center mb-16">
