@@ -93,6 +93,16 @@ const certificates = [
     imageDesc: "Certificado de Aplicación de Conocimientos en Analisis de Datos emitido por LinkedIn Learning",
     imagePreview: "/Mi-Portafolio/assets/certificates/Certificado - Aplicacion de Conocimientos_page-0001.jpg",
     link: "https://www.linkedin.com/learning/certificates/57be679cca9d505f4ff60bb1095382133af3da2fb9c2af64b2c96f5b85ef223f?trk=share_certificate"
+  },
+  {
+      id: 8,
+    title: "SQL Avanzado",
+    issuer: "HackerRank",
+    date: "2025-05-25",
+    imageAlt: "Certificado de SQL Avanzado",
+    imageDesc: "Certificado de SQL Avanzado emitido por HackerRank",
+    imagePreview: "/Mi-Portafolio/assets/certificates/SQL AVANZADO.png",
+    link: "https://www.hackerrank.com/certificates/iframe/508991ad621c"
   }
 ];
 
