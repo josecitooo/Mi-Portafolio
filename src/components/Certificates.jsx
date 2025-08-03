@@ -2,6 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, ExternalLink } from 'lucide-react';
 
+// Función para obtener la ruta base correcta
+const getBasePath = () => {
+  return import.meta.env.PROD ? '/Mi-Portafolio' : '';
+};
+
 // Lista fija de certificados
 const certificates = [
   // PYTHON - Ordenados por nivel/fecha
@@ -12,7 +17,7 @@ const certificates = [
     date: "2025-08-02",
     imageAlt: "Certificado de Python Data Science y Machine Learning",
     imageDesc: "Certificado de Python Data Science y Machine Learning emitido por Federico Garay - Udemy",
-    imagePreview: "/assets/certificates/Python Data Science y Machine Learning - Udemy.jpg",
+    imagePreview: `${getBasePath()}/assets/certificates/Python Data Science y Machine Learning - Udemy.jpg`,
     link: "https://www.udemy.com/certificate/UC-50afeb06-4caf-4bc0-bc01-66082c288a1f/"
   },
   {
@@ -22,7 +27,7 @@ const certificates = [
     date: "2025-01-03",
     imageAlt: "Certificado de Python para Ciencia de Datos",
     imageDesc: "Certificado de Python para Ciencia de Datos emitido por A2 Capacitacion",
-    imagePreview: "/assets/certificates/Certificado Python A2.jpg",
+    imagePreview: `${getBasePath()}/assets/certificates/Certificado Python A2.jpg`,
     link: "https://cursos.a2capacitacion.com/courses/1503101/certificate"
   },
   {
@@ -32,7 +37,7 @@ const certificates = [
     date: "2024-09-11",
     imageAlt: "Certificado de Python Avanzado",
     imageDesc: "Certificado de Python Avanzado emitido por Federico Garay - Udemy",
-    imagePreview: "/assets/certificates/Python - Udemy.jpg",
+    imagePreview: `${getBasePath()}/assets/certificates/Python - Udemy.jpg`,
     link: "https://www.udemy.com/certificate/UC-62734aa0-29b3-4eb8-bf77-e30cbe23d2a9/"
   },
   {
@@ -42,7 +47,7 @@ const certificates = [
     date: "2024-10-31",
     imageAlt: "Certificado de Python",
     imageDesc: "Certificado de Python emitido por Kaggle",
-    imagePreview: "/assets/certificates/Python - Kaggle.png",
+    imagePreview: `${getBasePath()}/assets/certificates/Python - Kaggle.png`,
     link: "https://www.kaggle.com/learn/certification/josecailo/python"
   },
   {
@@ -52,7 +57,7 @@ const certificates = [
     date: "2024-11-02",
     imageAlt: "Certificado de Pandas",
     imageDesc: "Certificado de Pandas emitido por Kaggle",
-    imagePreview: "/assets/certificates/Pandas - Kaggle.png",
+    imagePreview: `${getBasePath()}/assets/certificates/Pandas - Kaggle.png`,
     link: "https://www.kaggle.com/learn/certification/josecailo/pandas"
   },
   
@@ -64,7 +69,7 @@ const certificates = [
     date: "2024-09-14",
     imageAlt: "Certificado de Dashboards y Analisis de Datos con Excel",
     imageDesc: "Certificado de Dashboards y Analisis de Datos con Excel emitido por Federico Garay - Udemy",
-    imagePreview: "/assets/certificates/Tablas Dinámicas - Udemy.jpg",
+    imagePreview: `${getBasePath()}/assets/certificates/Tablas Dinámicas - Udemy.jpg`,
     link: "https://www.udemy.com/certificate/UC-c3640c8b-873f-42ae-a6cf-2b054a17fe37/"
   },
   {
@@ -74,7 +79,7 @@ const certificates = [
     date: "2024-05-16",
     imageAlt: "Certificado de Excel Aplicado al Analisis Financiero",
     imageDesc: "Certificado de Excel Aplicado al Analisis Financiero emitido por Federico Garay - Udemy",
-    imagePreview: "/assets/certificates/Excel Financiero - Udemy.jpg",
+    imagePreview: `${getBasePath()}/assets/certificates/Excel Financiero - Udemy.jpg`,
     link: "https://www.udemy.com/certificate/UC-5675879d-d537-4cd3-8038-227ad388ed01/"
   },
   
@@ -86,7 +91,7 @@ const certificates = [
     date: "2025-05-25",
     imageAlt: "Certificado de SQL Avanzado",
     imageDesc: "Certificado de SQL Avanzado emitido por HackerRank",
-    imagePreview: "/assets/certificates/SQL AVANZADO.png",
+    imagePreview: `${getBasePath()}/assets/certificates/SQL AVANZADO.png`,
     link: "https://www.hackerrank.com/certificates/iframe/508991ad621c"
   },
   
@@ -98,7 +103,7 @@ const certificates = [
     date: "2024-12-20",
     imageAlt: "Certificado de Business Intelligence con Power BI",
     imageDesc: "Certificado de Business Intelligence con Power BI emitido por Instituto Tecnologico de Las Americas (ITLA)",
-    imagePreview: "/assets/certificates/Certificado Business Intelligence Power BI.jpg",
+    imagePreview: `${getBasePath()}/assets/certificates/Certificado Business Intelligence Power BI.jpg`,
     link: ""
   },
   
@@ -110,7 +115,7 @@ const certificates = [
     date: "2025-02-08",
     imageAlt: "Certificado de Analisis de Datos Profesional",
     imageDesc: "Certificado de Analisis de Datos Profesional emitido por Microsoft - LinkedIn Learning",
-    imagePreview: "/assets/certificates/Certificado de Finalizacion - Analisis de datos LinkedIn.jpg",
+    imagePreview: `${getBasePath()}/assets/certificates/Certificado de Finalizacion - Analisis de datos LinkedIn.jpg`,
     link: "https://www.linkedin.com/learning/certificates/17b3fc830115bc689c6974a75a20ba00a4c9525b9a4b3469410302b3596d24dd?trk=share_certificate"
   },
   {
@@ -120,11 +125,10 @@ const certificates = [
     date: "2025-02-07",
     imageAlt: "Certificado de Aplicación de Conocimientos en Analisis de Datos",
     imageDesc: "Certificado de Aplicación de Conocimientos en Analisis de Datos emitido por LinkedIn Learning",
-    imagePreview: "/assets/certificates/Certificado - Aplicacion de Conocimientos_page-0001.jpg",
+    imagePreview: `${getBasePath()}/assets/certificates/Certificado - Aplicacion de Conocimientos_page-0001.jpg`,
     link: "https://www.linkedin.com/learning/certificates/57be679cca9d505f4ff60bb1095382133af3da2fb9c2af64b2c96f5b85ef223f?trk=share_certificate"
   }
 ];
-
 
 const Certificates = () => {
   return (
