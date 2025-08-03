@@ -183,20 +183,20 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
-	customLogger: logger,
-	plugins: [react()],
-  	base: '/Mi-Portafolio/',
-	server: {
-		cors: true,
-		headers: {
-			'Cross-Origin-Embedder-Policy': 'credentialless',
-		},
-		allowedHosts: true,
-	},
-	resolve: {
-		extensions: ['.jsx', '.js', '.tsx', '.ts', '.json', ],
-		alias: {
-			'@': path.resolve(__dirname, './src'),
-		},
-	},
+    customLogger: logger,
+    plugins: [react()],
+      base: process.env.NODE_ENV === 'production' ? '/Mi-Portafolio/' : '/',
+    server: {
+        cors: true,
+        headers: {
+            'Cross-Origin-Embedder-Policy': 'credentialless',
+        },
+        allowedHosts: true,
+    },
+    resolve: {
+        extensions: ['.jsx', '.js', '.tsx', '.ts', '.json', ],
+        alias: {
+            '@': path.resolve(__dirname, './src'),
+        },
+    },
 });
