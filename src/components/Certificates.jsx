@@ -4,35 +4,16 @@ import { Award, ExternalLink } from 'lucide-react';
 
 // Lista fija de certificados
 const certificates = [
+  // PYTHON - Ordenados por nivel/fecha
   {
-    id: 1747224019914,
-    title: "Analisis de Datos Profesional",
-    issuer: "Microsoft - LinkedIn Learning",
-    date: "2025-02-08",
-    imageAlt: "Certificado de Analisis de Datos Profesional",
-    imageDesc: "Certificado de Analisis de Datos Profesional emitido por Microsoft - LinkedIn Learning",
-    imagePreview: "/Mi-Portafolio/assets/certificates/Certificado de Finalizacion - Analisis de datos LinkedIn.jpg",
-    link: "https://www.linkedin.com/learning/certificates/17b3fc830115bc689c6974a75a20ba00a4c9525b9a4b3469410302b3596d24dd?trk=share_certificate"
-  },
-  {
-    id: 1747224118847,
-    title: "Python Avanzado",
+    id: 1747224019915,
+    title: "Python Data Science y Machine Learning",
     issuer: "Federico Garay - Udemy",
-    date: "2024-09-11",
-    imageAlt: "Certificado de Python Avanzado",
-    imageDesc: "Certificado de Python Avanzado emitido por Federico Garay - Udemy",
-    imagePreview: "/Mi-Portafolio/assets/certificates/Python - Udemy.jpg",
-    link: "https://www.udemy.com/certificate/UC-62734aa0-29b3-4eb8-bf77-e30cbe23d2a9/"
-  },
-  {
-    id: 1747224164850,
-    title: "Business Intelligence con Power BI",
-    issuer: "Instituto Tecnologico de Las Americas (ITLA)",
-    date: "2024-12-20",
-    imageAlt: "Certificado de Business Intelligence con Power BI",
-    imageDesc: "Certificado de Business Intelligence con Power BI emitido por Instituto Tecnologico de Las Americas (ITLA)",
-    imagePreview: "/Mi-Portafolio/assets/certificates/Certificado Business Intelligence Power BI.jpg",
-    link: ""
+    date: "2025-08-02",
+    imageAlt: "Certificado de Python Data Science y Machine Learning",
+    imageDesc: "Certificado de Python Data Science y Machine Learning emitido por Federico Garay - Udemy",
+    imagePreview: "/Mi-Portafolio/assets/certificates/Python Data Science Machine Learning - Udemy.jpg",
+    link: "https://www.udemy.com/certificate/UC-50afeb06-4caf-4bc0-bc01-66082c288a1f/"
   },
   {
     id: 1747224269895,
@@ -45,24 +26,14 @@ const certificates = [
     link: "https://cursos.a2capacitacion.com/courses/1503101/certificate"
   },
   {
-    id: 1747224340819,
-    title: "Excel Aplicado al Analisis Financiero",
+    id: 1747224118847,
+    title: "Python Avanzado",
     issuer: "Federico Garay - Udemy",
-    date: "2024-05-16",
-    imageAlt: "Certificado de Excel Aplicado al Analisis Financiero",
-    imageDesc: "Certificado de Excel Aplicado al Analisis Financiero emitido por Federico Garay - Udemy",
-    imagePreview: "/Mi-Portafolio/assets/certificates/Excel Financiero - Udemy.jpg",
-    link: "https://www.udemy.com/certificate/UC-5675879d-d537-4cd3-8038-227ad388ed01/"
-  },
-  {
-    id: 1747224425967,
-    title: "Dashboards y Analisis de Datos con Excel",
-    issuer: "Federico Garay - Udemy",
-    date: "2024-09-14",
-    imageAlt: "Certificado de Dashboards y Analisis de Datos con Excel",
-    imageDesc: "Certificado de Dashboards y Analisis de Datos con Excel emitido por Federico Garay - Udemy",
-    imagePreview: "/Mi-Portafolio/assets/certificates/Tablas Dinámicas - Udemy.jpg",
-    link: "https://www.udemy.com/certificate/UC-c3640c8b-873f-42ae-a6cf-2b054a17fe37/"
+    date: "2024-09-11",
+    imageAlt: "Certificado de Python Avanzado",
+    imageDesc: "Certificado de Python Avanzado emitido por Federico Garay - Udemy",
+    imagePreview: "/Mi-Portafolio/assets/certificates/Python - Udemy.jpg",
+    link: "https://www.udemy.com/certificate/UC-62734aa0-29b3-4eb8-bf77-e30cbe23d2a9/"
   },
   {
     id: 1747224565319,
@@ -84,6 +55,64 @@ const certificates = [
     imagePreview: "/Mi-Portafolio/assets/certificates/Pandas - Kaggle.png",
     link: "https://www.kaggle.com/learn/certification/josecailo/pandas"
   },
+  
+  // EXCEL - Ordenados por fecha
+  {
+    id: 1747224425967,
+    title: "Dashboards y Analisis de Datos con Excel",
+    issuer: "Federico Garay - Udemy",
+    date: "2024-09-14",
+    imageAlt: "Certificado de Dashboards y Analisis de Datos con Excel",
+    imageDesc: "Certificado de Dashboards y Analisis de Datos con Excel emitido por Federico Garay - Udemy",
+    imagePreview: "/Mi-Portafolio/assets/certificates/Tablas Dinámicas - Udemy.jpg",
+    link: "https://www.udemy.com/certificate/UC-c3640c8b-873f-42ae-a6cf-2b054a17fe37/"
+  },
+  {
+    id: 1747224340819,
+    title: "Excel Aplicado al Analisis Financiero",
+    issuer: "Federico Garay - Udemy",
+    date: "2024-05-16",
+    imageAlt: "Certificado de Excel Aplicado al Analisis Financiero",
+    imageDesc: "Certificado de Excel Aplicado al Analisis Financiero emitido por Federico Garay - Udemy",
+    imagePreview: "/Mi-Portafolio/assets/certificates/Excel Financiero - Udemy.jpg",
+    link: "https://www.udemy.com/certificate/UC-5675879d-d537-4cd3-8038-227ad388ed01/"
+  },
+  
+  // SQL
+  {
+    id: 8,
+    title: "SQL Avanzado",
+    issuer: "HackerRank",
+    date: "2025-05-25",
+    imageAlt: "Certificado de SQL Avanzado",
+    imageDesc: "Certificado de SQL Avanzado emitido por HackerRank",
+    imagePreview: "/Mi-Portafolio/assets/certificates/SQL AVANZADO.png",
+    link: "https://www.hackerrank.com/certificates/iframe/508991ad621c"
+  },
+  
+  // POWER BI
+  {
+    id: 1747224164850,
+    title: "Business Intelligence con Power BI",
+    issuer: "Instituto Tecnologico de Las Americas (ITLA)",
+    date: "2024-12-20",
+    imageAlt: "Certificado de Business Intelligence con Power BI",
+    imageDesc: "Certificado de Business Intelligence con Power BI emitido por Instituto Tecnologico de Las Americas (ITLA)",
+    imagePreview: "/Mi-Portafolio/assets/certificates/Certificado Business Intelligence Power BI.jpg",
+    link: ""
+  },
+  
+  // ANÁLISIS DE DATOS GENERAL - Ordenados por fecha
+  {
+    id: 1747224019914,
+    title: "Analisis de Datos Profesional",
+    issuer: "Microsoft - LinkedIn Learning",
+    date: "2025-02-08",
+    imageAlt: "Certificado de Analisis de Datos Profesional",
+    imageDesc: "Certificado de Analisis de Datos Profesional emitido por Microsoft - LinkedIn Learning",
+    imagePreview: "/Mi-Portafolio/assets/certificates/Certificado de Finalizacion - Analisis de datos LinkedIn.jpg",
+    link: "https://www.linkedin.com/learning/certificates/17b3fc830115bc689c6974a75a20ba00a4c9525b9a4b3469410302b3596d24dd?trk=share_certificate"
+  },
   {
     id: 1747224889215,
     title: "Aplicación de Conocimientos en Analisis de Datos",
@@ -93,16 +122,6 @@ const certificates = [
     imageDesc: "Certificado de Aplicación de Conocimientos en Analisis de Datos emitido por LinkedIn Learning",
     imagePreview: "/Mi-Portafolio/assets/certificates/Certificado - Aplicacion de Conocimientos_page-0001.jpg",
     link: "https://www.linkedin.com/learning/certificates/57be679cca9d505f4ff60bb1095382133af3da2fb9c2af64b2c96f5b85ef223f?trk=share_certificate"
-  },
-  {
-      id: 8,
-    title: "SQL Avanzado",
-    issuer: "HackerRank",
-    date: "2025-05-25",
-    imageAlt: "Certificado de SQL Avanzado",
-    imageDesc: "Certificado de SQL Avanzado emitido por HackerRank",
-    imagePreview: "/Mi-Portafolio/assets/certificates/SQL AVANZADO.png",
-    link: "https://www.hackerrank.com/certificates/iframe/508991ad621c"
   }
 ];
 

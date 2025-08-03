@@ -14,6 +14,7 @@ const About = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
+          
           Sobre <span className="gradient-text">Mí</span>
         </motion.h2>
         <motion.div 
@@ -40,6 +41,7 @@ const About = () => {
               src={fotoPerfil}
               alt="Foto de perfil profesional de Jose Carlos Fernandez"
               className="w-full h-auto rounded-lg"
+              
 />
           </div>
         </motion.div>
@@ -89,7 +91,7 @@ const About = () => {
               Contáctame
             </a>
             <a 
-              href="/Mi-Portafolio/assets/Jose Carlos CV (Actualizado).pdf"
+              href="/Mi-Portafolio/assets/Jose Carlos CV ATS.pdf"
               download 
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-blue-600 text-blue-600 font-medium hover:bg-blue-50 transition-colors"
             >
