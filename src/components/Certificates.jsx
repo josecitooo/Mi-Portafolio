@@ -85,6 +85,16 @@ const certificates = [
   
   // SQL
   {
+    id: 1747224425967,
+    title: "SQL Avanzado",
+    issuer: "A2 Capacitacion",
+    date: "2025-08-13",
+    imageAlt: "Certificado de SQL Avanzado",
+    imageDesc: "Certificado de SQL Avanzado emitido por A2 Capacitacion",
+    imagePreview: `${getBasePath()}/assets/certificates/Certificado SQL - A2 Capacitacion.jpg`,
+    link: "https://cursos.a2capacitacion.com/courses/1297623/certificate"
+  },
+  {
     id: 8,
     title: "SQL Avanzado",
     issuer: "HackerRank",
