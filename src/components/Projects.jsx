@@ -78,10 +78,10 @@ const Projects = () => {
 						onMouseEnter={() => setHoveredProject(project.id)}
 						onMouseLeave={() => setHoveredProject(null)}
 					>
-						<div className="overflow-hidden h-48 rounded-t-xl">
+						<div className="overflow-hidden h-60 rounded-t-xl">
 							<img
 								alt={project.imageAlt}
-								className="w-full h-full object-cover object-center"
+								className="w-full h-full object-contain bg-gray-500"
 								src={project.imageSrc}
 							/>
 						</div>
