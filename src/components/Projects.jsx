@@ -1,5 +1,5 @@
-import gestorPacientes from '../imagenes/gestor-pacientes.png';
-import taskManager from '../imagenes/task-manager.png';
+import dashboards from '../imagenes/dashboard.gif';
+import notebooks from '../imagenes/notebook.gif';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
@@ -7,25 +7,25 @@ import { ExternalLink, Github } from 'lucide-react';
 const projectsData = [
   {
     id: 1,
-    title: 'Gestor de Pacientes para Hospital',
-    description: 'Aplicación diseñada para registrar, organizar y analizar datos de pacientes, incluyendo historial médico, citas y reportes estadísticos de salud.',
-    tags: ['React', 'Node.js', 'MongoDB', 'Chart.js'],
-    imageAlt: 'Gestor de pacientes con datos clínicos',
-    imageDesc: 'Interfaz intuitiva para la gestión de pacientes con información médica detallada y reportes visuales',
-    imageSrc: gestorPacientes,
-    demoLink: 'https://youtu.be/rdGopSsEIXk',
-    codeLink: 'https://github.com/josecitooo/Gestor-Pacientes',
+    title: 'Notebooks',
+    description: 'Repositorio dedicado al almacenamiento y gestion de Jupyter Notebooks',
+    tags: ['Jupyter', 'Notebooks', 'Python', 'Data Science', 'R'],
+    imageAlt: 'Notebooks de Jupyter',
+    imageDesc: 'Colección de Notebooks para análisis de datos y aprendizaje automático',
+    imageSrc: notebooks,
+    demoLink: 'Video en proceso...',
+    codeLink: 'https://github.com/josecitooo/Notebooks',
   },
   {
     id: 2,
-    title: 'Gestor de Tareas Inteligente',
-    description: 'Aplicación web para la organización y seguimiento de tareas, con recordatorios automáticos, etiquetas, niveles de prioridad y estadísticas de productividad.',
-    tags: ['JavaScript', 'CSS', 'HTML'],
-    imageAlt: 'Aplicación de gestión de tareas',
-    imageDesc: 'Interfaz moderna para crear, editar y visualizar tareas con reportes de desempeño personal',
-    imageSrc: taskManager,
-    demoLink: 'https://youtu.be/Pc_SGzpLte0?si=8DIZtOj9B3G392EE',
-    codeLink: 'https://github.com/josecitooo/Task-Manager',
+    title: 'Dashboards',
+    description: 'Repositorio dedicado a la gestion de paneles de Power BI',
+    tags: ['Power BI', 'Dashboards', 'Data Visualization'],
+    imageAlt: 'Dashboards de Power BI',
+    imageDesc: 'Colección de paneles interactivos para análisis de datos',
+    imageSrc: dashboards,
+    demoLink: 'Video en proceso...',
+    codeLink: 'https://github.com/josecitooo/Dashboards',
   },
 ];
 
