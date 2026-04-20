@@ -2,7 +2,7 @@
 echo ===================================================
 echo  DESPLIEGUE AUTOMÁTICO A GITHUB PAGES
 echo ===================================================
-echo.
+echo
 
 echo 1. Asegurando que los cambios estén en GitHub...
 git push origin master
