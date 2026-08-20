@@ -10,10 +10,13 @@ import Skills from '@/components/Skills';
 import Certificates from '@/components/Certificates';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import { useTrackVisitor } from '@/lib/useTrackVisitor';
 
 const App = () => {
+  useTrackVisitor();
   const [activeSection, setActiveSection] = useState('home');
   const [scrollY, setScrollY] = useState(0);
+  
 
   useEffect(() => {
     const handleScroll = () => {
