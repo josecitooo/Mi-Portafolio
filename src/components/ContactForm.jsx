@@ -220,6 +220,10 @@ const ContactForm = () => {
         <Button
           type="submit"
           disabled={isSubmitting}
+          onClick={(event) => {
+            event.preventDefault();
+            sendMessage(event);
+          }}
           className="button-primary w-full gap-2"
         >
           <Send className="w-5 h-5" />
