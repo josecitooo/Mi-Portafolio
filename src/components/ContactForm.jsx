@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -15,6 +15,7 @@ const initialForm = {
 };
 
 const ContactForm = () => {
+  const formRef = useRef(null);
   const [formData, setFormData] = useState(initialForm);
   const [status, setStatus] = useState({ type: 'idle', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -82,7 +83,7 @@ const ContactForm = () => {
     setStatus({ type: 'idle', message: '' });
 
     try {
-      const requestData = new FormData(event.currentTarget);
+      const requestData = new FormData(formRef.current);
       requestData.set('access_key', contactConfig.web3FormsAccessKey);
       requestData.set('subject', `Contacto del portafolio: ${formData.subject.trim()}`);
       requestData.set('from_name', formData.name.trim());
@@ -139,6 +140,7 @@ const ContactForm = () => {
       <form
         action="https://api.web3forms.com/submit"
         method="POST"
+        ref={formRef}
         onSubmit={sendMessage}
         noValidate
         className="contact-form"
