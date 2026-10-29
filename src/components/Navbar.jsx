@@ -22,6 +22,7 @@ const Navbar = ({ activeSection }) => {
     { name: 'Sobre mí', section: 'about' },
     { name: 'Proyectos', section: 'projects' },
     { name: 'Habilidades', section: 'skills' },
+    { name: 'Formación', section: 'academic' },
     { name: 'Certificados', section: 'certificates' },
     { name: 'Contacto', section: 'contact' },
   ];
@@ -54,7 +55,7 @@ const Navbar = ({ activeSection }) => {
           >
             <a 
               href="#home" 
-              className="text-xl font-bold gradient-text"
+              className="brand-mark"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection('home');
@@ -89,7 +90,7 @@ const Navbar = ({ activeSection }) => {
               transition={{ duration: 0.3, delay: 0.5 }}
             >
               <Button 
-                className="ml-4 gradient-bg"
+                className="button-primary nav-cta"
                 onClick={() => scrollToSection('contact')}
               >
                 Contáctame
@@ -121,7 +122,7 @@ const Navbar = ({ activeSection }) => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-t"
+            className="mobile-menu md:hidden"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col space-y-3">
               {navLinks.map((link) => (
@@ -130,8 +131,8 @@ const Navbar = ({ activeSection }) => {
                   href={`#${link.section}`}
                   className={`py-2 px-4 rounded-md ${
                     activeSection === link.section
-                      ? 'bg-blue-50 text-blue-600'
-                      : 'text-gray-700'
+                      ? 'mobile-link active'
+                      : 'mobile-link'
                   }`}
                   onClick={(e) => {
                     e.preventDefault();
@@ -142,7 +143,7 @@ const Navbar = ({ activeSection }) => {
                 </a>
               ))}
               <Button 
-                className="w-full gradient-bg mt-2"
+                className="button-primary w-full mt-2"
                 onClick={() => scrollToSection('contact')}
               >
                 Contáctame

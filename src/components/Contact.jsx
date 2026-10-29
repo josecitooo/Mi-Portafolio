@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import ContactInfo from '@/components/ContactInfo';
 import ContactForm from '@/components/ContactForm';
 import SocialLinks from '@/components/SocialLinks';
+import { MessageCircle } from 'lucide-react';
+import { whatsappUrl } from '@/data/contact';
 
 const Contact = () => {
   return (
@@ -42,10 +44,19 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="lg:col-span-1 bg-white rounded-xl p-6 shadow-md"
+          className="contact-panel lg:col-span-1"
         >
           <h3 className="text-xl font-bold mb-6">Información de Contacto</h3>
           <ContactInfo />
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button-whatsapp mt-8"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Escribirme por WhatsApp
+          </a>
           <div className="mt-8">
             <h4 className="text-lg font-medium mb-4">Sígueme</h4>
             <SocialLinks />
@@ -57,7 +68,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="lg:col-span-2 bg-white rounded-xl p-6 shadow-md"
+          className="contact-panel lg:col-span-2"
         >
           <h3 className="text-xl font-bold mb-6">Envíame un Mensaje</h3>
           <ContactForm />

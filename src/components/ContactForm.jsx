@@ -1,125 +1,184 @@
-import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Send } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { contactConfig } from '@/data/contact';
+
+const initialForm = {
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+  company: '',
+};
 
 const ContactForm = () => {
-  const form = useRef();
-  const [successMessage, setSuccessMessage] = useState(false); // Estado para el mensaje de éxito
+  const [formData, setFormData] = useState(initialForm);
+  const [status, setStatus] = useState({ type: 'idle', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
+  };
 
-    (emailjs
-      .sendForm(
-        'service_93u8hn5', // Service ID
-        'template_85sjvzh', // Template ID
-        form.current,
-        'tbVQFCzZg9DZrqfQ2' // Public Key
-      )
-      .then(
-        (result) => {
-          setSuccessMessage(true); // Muestra el mensaje de éxito
-          form.current.reset(); // Limpia el formulario
-          setTimeout(() => setSuccessMessage(false), 5000); // Oculta el mensaje después de 5 segundos
-        },
-        (error) => {
-          console.error('Error al enviar el mensaje:', error); // Muestra el error en la consola
-          alert('Hubo un error al enviar el mensaje. Inténtalo de nuevo.');
-        }
-          ));
-    
-      };
+  const sendMessage = async (event) => {
+    event.preventDefault();
+
+    if (formData.company.trim()) {
+      return;
+    }
+
+    if (!contactConfig.web3FormsAccessKey) {
+      setStatus({
+        type: 'error',
+        message: 'El formulario todavía no está configurado. Agrega la clave de Web3Forms en .env.local.',
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus({ type: 'idle', message: '' });
+
+    try {
+      const requestData = new FormData(event.currentTarget);
+      requestData.set('access_key', contactConfig.web3FormsAccessKey);
+      requestData.set('subject', `Contacto del portafolio: ${formData.subject.trim()}`);
+      requestData.set('from_name', formData.name.trim());
+      requestData.set('email', formData.email.trim());
+      requestData.set('message', formData.message.trim());
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: requestData,
+      });
+      const responseText = await response.text();
+      let result;
+
+      try {
+        result = JSON.parse(responseText);
+      } catch {
+        throw new Error('Web3Forms devolvió una respuesta no válida.');
+      }
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Web3Forms rechazó el envío.');
+      }
+
+      setFormData(initialForm);
+      setStatus({
+        type: 'success',
+        message: 'Mensaje enviado correctamente. Gracias por contactarme.',
+      });
+    } catch (error) {
+      console.error('Error al enviar el formulario de contacto:', error);
+      setStatus({
+        type: 'error',
+        message: error.message || 'No se pudo enviar el mensaje. Inténtalo nuevamente en unos minutos.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div>
-      {/* Mensaje de éxito */}
-      {successMessage && (
+      {status.type !== 'idle' && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          role="status"
+          aria-live="polite"
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 p-4 bg-green-100 text-green-800 rounded-lg shadow-lg"
+          className={`contact-status contact-status-${status.type}`}
         >
-          ¡Gracias por tu mensaje! Me pondré en contacto contigo pronto. 😊
+          {status.message}
         </motion.div>
       )}
 
-      {/* Formulario */}
-      {/* Formulario */}
-      <form
-        ref={form}
-        onSubmit={sendEmail}
-        className="space-y-6 bg-white p-6 rounded-lg shadow-lg"
-      >
-        {/* Campos ocultos necesarios para EmailJS */}
-        <input type="hidden" name="title" value="Formulario de Contacto" />
-        <input type="hidden" name="time" value={new Date().toLocaleString()} />
+      <form onSubmit={sendMessage} className="contact-form">
+        <div className="contact-honeypot" aria-hidden="true">
+          <label htmlFor="company">Company</label>
+          <input
+            id="company"
+            name="company"
+            tabIndex="-1"
+            autoComplete="off"
+            value={formData.company}
+            onChange={handleChange}
+          />
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <Label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Nombre
-            </Label>
+            <Label htmlFor="name">Nombre</Label>
             <Input
               type="text"
               id="name"
-              name="name" // ✅ Corregido para que coincida con la plantilla EmailJS
+              name="name"
               required
-              className="contact-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              minLength={2}
+              value={formData.name}
+              onChange={handleChange}
+              className="contact-input"
               placeholder="Tu nombre"
             />
           </div>
           <div>
-            <Label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Email
-            </Label>
+            <Label htmlFor="email">Correo electrónico</Label>
             <Input
               type="email"
               id="email"
-              name="email" // ✅ Corregido para que coincida con la plantilla EmailJS
+              name="email"
               required
-              className="contact-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={formData.email}
+              onChange={handleChange}
+              className="contact-input"
               placeholder="tu.email@ejemplo.com"
             />
           </div>
         </div>
 
         <div>
-          <Label
-            htmlFor="message"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Mensaje
-          </Label>
+          <Label htmlFor="subject">Motivo del contacto</Label>
+          <Input
+            type="text"
+            id="subject"
+            name="subject"
+            required
+            minLength={3}
+            value={formData.subject}
+            onChange={handleChange}
+            className="contact-input"
+            placeholder="Proyecto, oportunidad laboral, consulta..."
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="message">Mensaje</Label>
           <textarea
             id="message"
             name="message"
             required
+            minLength={10}
             rows={5}
-            className="contact-input resize-none w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Tu mensaje aquí..."
-          ></textarea>
+            value={formData.message}
+            onChange={handleChange}
+            className="contact-input resize-none"
+            placeholder="Cuéntame en qué puedo ayudarte..."
+          />
         </div>
 
         <Button
           type="submit"
-          className="w-full gradient-bg text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+          disabled={isSubmitting}
+          className="button-primary w-full gap-2"
         >
           <Send className="w-5 h-5" />
-          Enviar Mensaje
+          {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
         </Button>
       </form>
-
     </div>
   );
 };

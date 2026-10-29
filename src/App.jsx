@@ -5,11 +5,13 @@ import { Toaster } from '@/components/ui/toaster';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import Academic from '@/components/Academic';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import Certificates from '@/components/Certificates';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import AmbientAnimations from '@/components/AmbientAnimations';
 import { useTrackVisitor } from '@/lib/useTrackVisitor';
 
 const App = () => {
@@ -22,7 +24,7 @@ const App = () => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
       
-      const sections = ['home', 'about', 'projects', 'skills', 'certificates', 'contact'];
+      const sections = ['home', 'about', 'projects', 'skills', 'academic', 'certificates', 'contact'];
       
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -43,7 +45,8 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="site-shell min-h-screen">
+      <AmbientAnimations />
       <Navbar activeSection={activeSection} />
       
       <main>
@@ -51,7 +54,7 @@ const App = () => {
           <Hero />
         </section>
         
-        <motion.section 
+        <motion.section
           id="about"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -68,7 +71,7 @@ const App = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="section-padding bg-gray-50"
+          className="section-padding section-muted"
         >
           <Projects />
         </motion.section>
@@ -79,18 +82,25 @@ const App = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="section-padding"
+          className="section-padding section-muted"
         >
           <Skills />
         </motion.section>
 
         <motion.section 
+          id="academic"
+          className="section-padding"
+        >
+          <Academic />
+        </motion.section>
+
+        <motion.section
           id="certificates"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="section-padding bg-gray-50"
+          className="section-padding section-muted"
         >
           <Certificates />
         </motion.section>

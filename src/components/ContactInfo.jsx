@@ -1,19 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { contactConfig } from '@/data/contact';
 
 const contactDetails = [
   {
     icon: <Mail className="w-5 h-5 text-blue-600" />,
     title: 'Email',
-    value: 'fernandezjosecarlos61@gmail.com',
-    link: 'mailto:fernandezjosecarlos61@gmail.com',
+    value: contactConfig.email,
+    link: `mailto:${contactConfig.email}`,
   },
   {
     icon: <Phone className="w-5 h-5 text-blue-600" />,
     title: 'Teléfono',
     value: '+1 849 356 8680',
-    link: 'tel:+18493568680',
+    link: `tel:+${contactConfig.whatsappNumber}`,
   },
   {
     icon: <MapPin className="w-5 h-5 text-blue-600" />,

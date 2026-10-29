@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import SocialLinks from '@/components/SocialLinks';
+import { siteConfig } from '@/data/portfolio';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,6 +16,7 @@ const Footer = () => {
         { name: 'Sobre Mí', href: '#about' },
         { name: 'Proyectos', href: '#projects' },
         { name: 'Habilidades', href: '#skills' },
+        { name: 'Formación', href: '#academic' },
         { name: 'Certificados', href: '#certificates' },
         { name: 'Contacto', href: '#contact' },
       ],
@@ -23,7 +25,7 @@ const Footer = () => {
       title: 'Recursos',
       links: [
         { name: 'Blog', href: '/blog' }, // Example: Changed to a non-hash link
-        { name: 'Descargar CV', href: '/Mi-Portafolio/assets/Jose Carlos Fernandez CV.pdf', download: true }, // CV actualizado descargable, contratame jeje        git commit -m "Primera versión del portafolio"
+        { name: 'Descargar CV', href: siteConfig.cvUrl, download: true },
       ],
     },
   ];

@@ -53,7 +53,7 @@ const Skills = () => {
 
   return (
     <div className="container mx-auto px-4 md:px-6">
-      <div className="text-center mb-16">
+      <div className="section-heading">
         <motion.h2 
           className="text-3xl md:text-4xl font-bold mb-4"
           initial={{ opacity: 0, y: 20 }}
@@ -92,7 +92,7 @@ const Skills = () => {
           <motion.div
             key={index}
             variants={item}
-            className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300"
+            className="skill-card"
           >
             <div className="flex items-center gap-3 mb-4">
               {category.icon}

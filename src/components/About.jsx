@@ -2,13 +2,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import fotoPerfil from '../assets/data-science.avif';
+import { siteConfig } from '@/data/portfolio';
 
 const About = () => {
   return (
     <div className="container mx-auto px-4 md:px-6">
-      <div className="text-center mb-16">
+      <div className="section-heading">
         <motion.h2 
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -52,12 +53,13 @@ const About = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold mb-4">Analista y Científico de Datos Apasionado</h3>
+          <p className="eyebrow">Perfil profesional</p>
+          <h3 className="text-2xl font-bold mb-4">Graduado en Ciencia de Datos, enfocado en resultados</h3>
           <p className="text-gray-600 mb-6">
-            Soy Jose Carlos Fernandez, un analista y científico de datos con una sólida trayectoria ayudando a las organizaciones a tomar decisiones más inteligentes a través del poder de los datos. Mi pasión es descubrir insights ocultos y comunicar hallazgos complejos de manera clara y accionable.
+            Soy Jose Carlos Fernandez, analista y científico de datos graduado del Instituto Tecnológico de Las Américas (ITLA). Me interesa transformar información en decisiones claras y accionables.
           </p>
           <p className="text-gray-600 mb-6">
-            Me especializo en análisis estadístico, modelado predictivo y visualización de datos. Disfruto transformando grandes volúmenes de información en estrategias que impulsan el crecimiento y la eficiencia.
+            Trabajo con análisis, visualización, Python, SQL y proyectos de aprendizaje automático, comunicando hallazgos complejos de forma sencilla.
           </p>
 
           <div className="grid grid-cols-2 gap-4 mb-8">
@@ -82,7 +84,7 @@ const About = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <a 
               href="#contact" 
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors"
+              className="button-primary"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -91,9 +93,9 @@ const About = () => {
               Contáctame
             </a>
             <a 
-              href="/Mi-Portafolio/assets/Jose Carlos Fernandez CV.pdf"
+              href={siteConfig.cvUrl}
               download 
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-blue-600 text-blue-600 font-medium hover:bg-blue-50 transition-colors"
+              className="button-secondary"
             >
               Descargar CV
             </a>

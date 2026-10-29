@@ -27,7 +27,7 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center hero-pattern overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-white/90 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/45 to-white/55 z-0"></div>
       
       <div className="absolute inset-0 overflow-hidden z-0">
         {[...Array(5)].map((_, i) => (
@@ -64,12 +64,12 @@ const Hero = () => {
             animate={{ scale: 1, opacity: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5 }}
-            className="mb-6"
+            className="hero-photo-wrap mb-8"
           >
             <img 
               src={joseCarlos} 
               alt="Jose Carlos Fernandez" 
-              className="w-52 h-52 rounded-full mx-auto shadow-lg transition-transform transform duration-300 hover:scale-110"
+              className="hero-photo"
             />
           </motion.div>
       
@@ -80,8 +80,8 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
             className="mb-6"
           >
-            <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-              Analista y Científico de Datos
+            <span className="hero-eyebrow">
+              Analista y Cientifico de datos
             </span>
           </motion.div>
       
@@ -90,9 +90,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+            className="hero-title"
           >
-            Hola, soy <span className="gradient-text">Jose Carlos Fernandez</span>
+            <span className="hero-greeting">Hola, soy</span>{' '}
+            <span className="hero-name">Jose Carlos Fernandez</span>
           </motion.h1>
       
           {/* Descripción */}
@@ -100,7 +101,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-xl text-gray-600 max-w-2xl mb-8"
+            className="hero-subtitle"
           >
             Transformo datos en conocimiento y estrategias para impulsar decisiones empresariales.
           </motion.p>
@@ -114,7 +115,7 @@ const Hero = () => {
           >
             <Button 
               size="lg" 
-              className="gradient-bg text-white px-8"
+              className="button-primary px-8"
               onClick={scrollToContact}
             >
               Contáctame
@@ -122,7 +123,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-blue-500 text-blue-600 hover:bg-blue-50"
+              className="button-secondary"
               onClick={scrollToProjects}
             >
               Ver Proyectos
