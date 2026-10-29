@@ -24,10 +24,49 @@ const ContactForm = () => {
     setFormData((current) => ({ ...current, [name]: value }));
   };
 
+  const validateForm = () => {
+    const fields = [
+      ['name', 'Escribe tu nombre.'],
+      ['email', 'Escribe tu correo electrónico.'],
+      ['subject', 'Indica el motivo del contacto.'],
+      ['message', 'Escribe tu mensaje.'],
+    ];
+
+    for (const [field, message] of fields) {
+      if (!formData[field].trim()) {
+        return message;
+      }
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      return 'Escribe un correo electrónico válido.';
+    }
+
+    if (formData.name.trim().length < 2) {
+      return 'El nombre debe tener al menos 2 caracteres.';
+    }
+
+    if (formData.subject.trim().length < 3) {
+      return 'El motivo debe tener al menos 3 caracteres.';
+    }
+
+    if (formData.message.trim().length < 10) {
+      return 'El mensaje debe tener al menos 10 caracteres.';
+    }
+
+    return '';
+  };
+
   const sendMessage = async (event) => {
     event.preventDefault();
 
     if (formData.company.trim()) {
+      return;
+    }
+
+    const validationMessage = validateForm();
+    if (validationMessage) {
+      setStatus({ type: 'error', message: validationMessage });
       return;
     }
 
@@ -97,7 +136,7 @@ const ContactForm = () => {
         </motion.div>
       )}
 
-      <form onSubmit={sendMessage} className="contact-form">
+      <form onSubmit={sendMessage} noValidate className="contact-form">
         <div className="contact-honeypot" aria-hidden="true">
           <label htmlFor="company">Company</label>
           <input
