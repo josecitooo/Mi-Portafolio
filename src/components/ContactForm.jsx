@@ -136,7 +136,15 @@ const ContactForm = () => {
         </motion.div>
       )}
 
-      <form onSubmit={sendMessage} noValidate className="contact-form">
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        onSubmit={sendMessage}
+        noValidate
+        className="contact-form"
+      >
+        <input type="hidden" name="access_key" value={contactConfig.web3FormsAccessKey} />
+        <input type="hidden" name="from_name" value={formData.name} />
         <div className="contact-honeypot" aria-hidden="true">
           <label htmlFor="company">Company</label>
           <input
