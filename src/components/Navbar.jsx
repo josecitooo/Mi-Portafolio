@@ -24,7 +24,6 @@ const Navbar = ({ activeSection }) => {
     { name: 'Habilidades', section: 'skills' },
     { name: 'Formación', section: 'academic' },
     { name: 'Certificados', section: 'certificates' },
-    { name: 'Contacto', section: 'contact' },
   ];
 
   const scrollToSection = (sectionId) => {
