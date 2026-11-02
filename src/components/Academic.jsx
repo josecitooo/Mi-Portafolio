@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Maximize2, X } from 'lucide-react';
 
 const diplomaImage = `${import.meta.env.BASE_URL}assets/academic/TITULO ITLA.pdf`;
-const diplomaPreview = `${import.meta.env.BASE_URL}assets/academic/TITULO ITLA-preview.jpg`;
+const diplomaPreview = `${import.meta.env.BASE_URL}assets/academic/TITULO ITLA-preview.png`;
 
 const Academic = () => {
   const [isOpen, setIsOpen] = useState(false);
